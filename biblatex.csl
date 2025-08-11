@@ -22,9 +22,14 @@
       <email>ds858@cam.ac.uk</email>
       <uri>https://dstrohmaier.com</uri>
     </contributor>
+    <contributor>
+      <name>Jack Bosco</name>
+      <email>joseph.bosco@columbia.edu</email>
+      <uri>https://jackbosco.github.io/Website_static</uri>
+    </contributor>
     <category citation-format="label"/>
     <category field="generic-base"/>
-    <updated>2023-01-22T11:14:57+00:00</updated>
+    <updated>2025-07-24T22:15:50+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="zotero2biblatexType">
@@ -62,10 +67,17 @@
     </choose>
   </macro>
   <macro name="citeKey">
-    <group>
-      <text macro="author-short" text-case="lowercase"/>
-      <text macro="issued-year"/>
-    </group>
+    <choose>
+      <if variable="author">
+        <group>
+          <text macro="author-short" text-case="lowercase"/>
+          <text macro="issued-year"/>
+        </group>
+      </if>
+      <else>
+        <text variable="citation-label"/>
+      </else>
+    </choose>
   </macro>
   <macro name="author-short">
     <names variable="author">
